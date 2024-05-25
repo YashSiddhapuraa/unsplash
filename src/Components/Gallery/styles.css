@@ -1,0 +1,38 @@
+.photoGAlleryWapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.photosWrapper {
+  column-count: 3;
+}
+.galleryImagesWrapper {
+  margin-bottom: 16px;
+}
+.galleryImage {
+  width: 100%;
+}
+.searchName {
+  font-size: 50px;
+  font-weight: 800;
+  margin-bottom: 50px;
+  text-transform: capitalize;
+}
+@media only screen and (max-width: 992px) {
+  .photosWrapper {
+    column-count: 2;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .photosWrapper {
+    column-count: 1;
+    width: 100%;
+  }
+  .photoGalleryContainer {
+    width: 100%;
+  }
+}
