@@ -8,14 +8,12 @@ import { fetchImagesRequest } from "../../App/features/searchImages";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const Home = () => {
-  const { search, images } = useSelector(
-    (state: RootState) => state.searchImages
-  );
+  const { images } = useSelector((state: RootState) => state.searchImages);
 
   const dispatch = useDispatch();
 
   const fetchMoreData = () => {
-    dispatch(fetchImagesRequest(search));
+    dispatch(fetchImagesRequest());
   };
 
   useEffect(() => {
