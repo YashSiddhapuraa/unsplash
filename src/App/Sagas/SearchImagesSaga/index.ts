@@ -5,25 +5,30 @@ import {
   fetchImagesRequest,
   fetchImagesSuccess,
   fetchImagesFailure,
-} from "../../features/searchImages";
-import { PayloadAction } from "@reduxjs/toolkit";
+} from "../../features/searchImages"; // Adjust the import path accordingly
 
 const getImagesState = (state: any) => state.searchImages;
 
-function* fetchImagesSaga(action: PayloadAction<any>) {
+interface ImageResponse {
+  data: any; // Define this according to the actual response data structure from your API
+}
+
+function* fetchImagesSaga(): Generator<any, void, ImageResponse> {
   try {
-    const imagesState = yield select(getImagesState);
+    const imagesState: ReturnType<typeof getImagesState> = yield select(
+      getImagesState
+    );
     const response = yield call(
       axios.get,
-      `${import.meta.env.VITE_UNSPLASH_BASE_URL}/photos?client_id=${
-        import.meta.env.VITE_UNSPLASH_ACCESS_KEY
-      }&query=${imagesState.search}&per_page=${
-        // action.payload.perPage
-        20
-      }&page=${
-        imagesState.page
-        // action.payload.page
-      }`
+      `${import.meta.env.VITE_UNSPLASH_BASE_URL}/photos`,
+      {
+        params: {
+          client_id: import.meta.env.VITE_UNSPLASH_ACCESS_KEY,
+          query: imagesState.search,
+          per_page: 20,
+          page: imagesState.page,
+        },
+      }
     );
 
     yield put(fetchImagesSuccess(response.data));

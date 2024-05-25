@@ -1,4 +1,3 @@
-import React from "react";
 import { LogoSVG } from "../../Assets/Icons/Logo";
 import { MenuSVG } from "../../Assets/Icons/MenuSVG";
 import SearchBar from "../SearchBar";

@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { SearchSVG } from "../../Assets/Icons/SearchSVG";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../App/store";
+import { useDispatch } from "react-redux";
 import { getSearchString } from "../../App/features/searchImages";
 import { useDebounce } from "use-debounce";
 
 const SearchBar = () => {
   const [tempSearch, setTempSearch] = useState("");
   const [value] = useDebounce(tempSearch, 1000);
-  // const { search } = useSelector((state: RootState) => state.searchImages);
   const dispatch = useDispatch();
 
   useEffect(() => {
