@@ -6,7 +6,7 @@
 }
 
 .photosWrapper {
-  column-count: 3;
+  column-count: 5;
 }
 .galleryImagesWrapper {
   margin-bottom: 16px;
@@ -20,6 +20,20 @@
   margin-bottom: 50px;
   text-transform: capitalize;
 }
+@media only screen and (max-width: 1920px) {
+  .photosWrapper {
+    column-count: 4;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  .photosWrapper {
+    column-count: 3;
+    width: 100%;
+  }
+}
+
 @media only screen and (max-width: 992px) {
   .photosWrapper {
     column-count: 2;
